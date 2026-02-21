@@ -31,4 +31,5 @@ pip install -r requirements.txt
 cd django-orm-watching-storage-part-2
 python main.py
 ```
-<img width="695" height="69" alt="Снимок экрана 2026-02-18 в 18 28 10" src="https://github.com/user-attachments/assets/ad788b73-264c-4ec9-bb0e-2ab1848b3823" />
+<img width="695" height="69" alt="Снимок экрана 2026-02-18 в 18 28 10" src="https://github.com/user-attachments/assets/029a0d9e-540f-4543-88ef-243ef563d9fb" />
+
