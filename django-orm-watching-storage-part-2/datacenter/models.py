@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import localtime
 
 
 class Passcard(models.Model):
@@ -18,6 +19,15 @@ class Visit(models.Model):
     passcard = models.ForeignKey(Passcard, on_delete=models.CASCADE)
     entered_at = models.DateTimeField()
     leaved_at = models.DateTimeField(null=True)
+
+    def get_duration(visit):
+        '''Returns the length of time spent in storage'''
+        return (localtime() - localtime(visit.entered_at)).total_seconds()
+
+    def is_visit_long(visit, minutes=60):
+        '''Checking the user for suspicion'''
+        seconds_per_minute = 60
+        return (Visit.get_duration(visit) // seconds_per_minute) > minutes
 
     def __str__(self):
         return '{user} entered at {entered} {leaved}'.format(
